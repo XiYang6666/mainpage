@@ -1,4 +1,6 @@
-# Nuxt 3 Minimal Starter
+# mainpage
+
+Nuxt3 简单个人主页 / A simple personal homepage written in Nuxt3
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
