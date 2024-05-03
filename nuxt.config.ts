@@ -14,9 +14,6 @@ export default defineNuxtConfig({
             links: {},
             socials: {},
         },
-    },
-    routeRules: {
-        // "/":{ssr:true,}
-    },
+    }
 });
 

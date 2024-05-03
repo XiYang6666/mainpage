@@ -58,8 +58,6 @@ const hitokotoData: Record<string, string | number> = await $fetch(config.hitoko
 const hitokoto = hitokotoData.hitokoto;
 
 const links = ref(config.public.links as Record<string, string>);
-console.log(links.value, typeof links.value);
 const socials = ref(config.public.socials as Record<string, { link: string; icon: string }>);
-console.log(socials.value, typeof socials.value);
 </script>
 
