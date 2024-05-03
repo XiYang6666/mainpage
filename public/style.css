@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-cover;
+    @apply bg-zinc-800;
+    @apply bg-center;
+    background-image: url("/api/getRandomBackground");
+}
+
+.h-screen {
+    height: -webkit-fill-available;
+    height: 100vh;
+}
