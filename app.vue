@@ -1,5 +1,5 @@
 <template>
-    <div class="bg h-dvh overflow-y-hidden bg-black bg-opacity-80 flex items-center justify-center">
+    <div class="bg h-dvh overflow-y-hidden bg-black bg-opacity-80 flex items-center justify-center flex-col">
         <div class="content flex items-center flex-col w-[40rem]">
             <img
                 :src="'/api/getAvatar'"
@@ -35,6 +35,7 @@
                 </li>
             </ul>
         </div>
+        <span class="footer fixed bottom-4 text-lg text-zinc-400 font-thin text-center">{{ footer }}</span>
     </div>
 </template>
 
@@ -60,6 +61,8 @@ const description = ref(config.description);
 
 const hitokotoData: Record<string, string | number> = await $fetch(config.hitokotoUrl);
 const hitokoto = hitokotoData.hitokoto;
+
+const footer = ref(config.footer);
 
 const links = ref(config.public.links as Record<string, string>);
 const socials = ref(config.public.socials as Record<string, { link: string; icon: string }>);
