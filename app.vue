@@ -6,15 +6,15 @@
                 class="avatar w-28 rounded-full border-4 border-white hover:rotate-[1turn] transition-transform duration-500"
                 title="avatar"
             />
-            <span class="text-4xl text-zinc-300 font-sans font-thin mt-6 mb-2">{{ ownerName }}</span>
+            <span class="text-4xl text-zinc-300 font-sans font-thin text-center mt-6 mb-2">{{ ownerName }}</span>
 
             <hr class="w-1/2 border-gray-600 m-5" />
 
-            <span class="text-lg text-zinc-400 font-thin">{{ hitokoto }}</span>
+            <span class="text-lg text-zinc-400 font-thin text-center break-after-auto">{{ hitokoto }}</span>
 
             <hr class="w-1/2 border-gray-600 m-6" />
 
-            <span class="description text-lg text-zinc-400 font-thin">{{ description }}</span>
+            <span class="description text-lg text-zinc-400 font-thin text-center">{{ description }}</span>
 
             <ul class="links float-left mt-6 mb-4">
                 <li
@@ -27,7 +27,11 @@
 
             <ul class="socials">
                 <li v-for="{ link, icon } of Object.values(socials ?? {})" class="float-left ml-3 mr-3">
-                    <a :href="link"><i :class="`${icon} text-white text-3xl`"></i></a>
+                    <a :href="link"
+                        ><i
+                            :class="`${icon} text-white text-3xl hover:text-slate-600 transition-colors duration-300 transform-gpu`"
+                        ></i
+                    ></a>
                 </li>
             </ul>
         </div>
