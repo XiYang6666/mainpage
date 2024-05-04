@@ -1,5 +1,5 @@
 <template>
-    <div class="bg h-dvh overflow-y-hidden bg-black bg-opacity-80 flex items-center justify-center flex-col">
+    <div class="bg h-dvh w-dvw overflow-hidden bg-black bg-opacity-80 flex items-center justify-center flex-col">
         <div class="content flex items-center flex-col w-[40rem]">
             <img
                 :src="'/api/getAvatar'"
@@ -10,7 +10,7 @@
 
             <hr class="w-1/2 border-gray-600 m-5" />
 
-            <span class="text-lg text-zinc-400 font-thin text-center break-after-auto">{{ hitokoto }}</span>
+            <span class="text-lg text-zinc-400 font-thin text-center break-after-auto max-w-[95dvw]">{{ hitokoto }}</span>
 
             <hr class="w-1/2 border-gray-600 m-6" />
 

@@ -9,8 +9,3 @@ body {
     @apply bg-center;
     background-image: url("/api/getRandomBackground");
 }
-
-.h-screen {
-    height: -webkit-fill-available;
-    height: 100vh;
-}
