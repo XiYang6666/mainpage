@@ -10,10 +10,11 @@ export default defineNuxtConfig({
         description: "Welcome to Example's main page",
         hitokotoUrl: "https://v1.hitokoto.cn",
         gravatarUrl: "https://gravatar.com",
+        avatarCacheTime: 60 * 60 * 1000, // 1 hour
         public: {
             links: {},
             socials: {},
         },
-    }
+    },
 });
 

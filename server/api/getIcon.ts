@@ -1,8 +1,18 @@
 import { getGravatarUrl } from "../getGravatarUrl";
 import sharp from "sharp";
+import { updateIco } from "../updateIco";
+
+const config = useRuntimeConfig();
+
+let iconCache: {
+    time: number;
+    value: Blob;
+};
 
 export default defineEventHandler(async (event) => {
-    const config = useRuntimeConfig();
+    if (iconCache && iconCache.time + config.avatarCacheTime >= Date.now()) {
+        return iconCache.value;
+    }
     const avatarUrl = getGravatarUrl(config.ownerEmail);
 
     const imageBlob: Blob = await $fetch(avatarUrl);
@@ -23,6 +33,11 @@ export default defineEventHandler(async (event) => {
         .png()
         .toBuffer();
     const processedImg = new Blob([processedImgBuffer.buffer], { type: "image/png" });
-    
+    iconCache = {
+        time: Date.now(),
+        value: processedImg,
+    };
+
+    updateIco(processedImgBuffer);
     return processedImg;
 });
