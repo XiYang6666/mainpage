@@ -3,7 +3,7 @@
         <div class="content flex items-center flex-col w-[40rem]">
             <img
                 :src="'/api/getAvatar'"
-                class="avatar w-28 rounded-full border-4 border-white hover:rotate-[1turn] transition-transform duration-500"
+                class="avatar w-28 h-28 bg-slate-800 rounded-full border-4 border-white hover:rotate-[1turn] transition-transform duration-500"
                 title="avatar"
             />
             <span class="text-4xl text-zinc-300 font-sans font-thin text-center mt-6 mb-2">{{ ownerName }}</span>
