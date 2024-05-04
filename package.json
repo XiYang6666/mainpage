@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "nuxt": "^3.11.2",
-        "sharp": "0.32.6",
+        "sharp": "^0.33.3",
         "vue": "^3.4.26",
         "vue-router": "^4.3.2"
     },
