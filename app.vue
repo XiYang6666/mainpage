@@ -35,7 +35,7 @@
                 </li>
             </ul>
         </div>
-        <span class="footer fixed bottom-4 text-lg text-zinc-400 font-thin text-center">{{ footer }}</span>
+        <span class="footer fixed bottom-4 text-lg text-zinc-400 font-thin text-center" v-html="footer"></span>
     </div>
 </template>
 
