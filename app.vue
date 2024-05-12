@@ -44,20 +44,6 @@
 <script lang="ts" setup>
 const config = useRuntimeConfig();
 
-useHead({
-    title: config.title,
-    link: [
-        {
-            rel: "shortcut icon",
-            href: "/api/getIcon",
-        },
-        {
-            rel: "stylesheet",
-            href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css",
-        },
-    ],
-});
-
 const ownerName = useState(() => config.ownerName);
 const description = useState(() => config.description);
 
@@ -72,4 +58,19 @@ const footer = useState(() => config.footer);
 
 const links = useState(() => config.links as Record<string, string>);
 const socials = useState(() => config.socials as Record<string, { link: string; icon: string }>);
+
+useHead({
+    title: config.title,
+    meta: [{ name: "description", content: `${hitokoto.value}\n${description.value}` }],
+    link: [
+        {
+            rel: "shortcut icon",
+            href: "/api/getIcon",
+        },
+        {
+            rel: "stylesheet",
+            href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css",
+        },
+    ],
+});
 </script>
