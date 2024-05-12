@@ -8,14 +8,11 @@ export default defineNuxtConfig({
         ownerEmail: "example@example.com",
         ownerName: "Example",
         description: "Welcome to Example's main page",
-        footer: 'an example footer',
+        footer: "an example footer",
         hitokotoUrl: "https://v1.hitokoto.cn",
         gravatarUrl: "https://gravatar.com",
         avatarCacheTime: 60 * 60 * 1000, // 1 hour
-        public: {
-            links: {},
-            socials: {},
-        },
+        links: {},
+        socials: {},
     },
 });
-

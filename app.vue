@@ -10,7 +10,9 @@
 
             <hr class="w-1/2 border-gray-600 m-5" />
 
-            <span class="text-lg text-zinc-400 font-thin text-center break-after-auto max-w-[95dvw]">{{ hitokoto }}</span>
+            <span class="text-lg text-zinc-400 font-thin text-center break-after-auto max-w-[95dvw]">{{
+                hitokoto
+            }}</span>
 
             <hr class="w-1/2 border-gray-600 m-6" />
 
@@ -56,15 +58,18 @@ useHead({
     ],
 });
 
-const ownerName = ref(config.ownerName);
-const description = ref(config.description);
+const ownerName = useState(() => config.ownerName);
+const description = useState(() => config.description);
 
-const hitokotoData: Record<string, string | number> = await $fetch(config.hitokotoUrl);
-const hitokoto = hitokotoData.hitokoto;
+const hitokoto: Ref<string> = useState();
 
-const footer = ref(config.footer);
+if (process.server) {
+    const hitokotoData: Record<string, any> = await $fetch(config.hitokotoUrl);
+    hitokoto.value = hitokotoData.hitokoto;
+}
 
-const links = ref(config.public.links as Record<string, string>);
-const socials = ref(config.public.socials as Record<string, { link: string; icon: string }>);
+const footer = useState(() => config.footer);
+
+const links = useState(() => config.links as Record<string, string>);
+const socials = useState(() => config.socials as Record<string, { link: string; icon: string }>);
 </script>
-
