@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     }
     const avatarUrl = getGravatarUrl(config.ownerEmail);
 
-    const imageBlob: Blob = await $fetch(avatarUrl);
+    const imageBlob: Blob = await $fetch(avatarUrl.toString());
 
     const radius = 64;
     const sharpImage = sharp(Buffer.from(await imageBlob.arrayBuffer()));
