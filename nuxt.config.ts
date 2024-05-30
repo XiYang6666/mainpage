@@ -14,5 +14,6 @@ export default defineNuxtConfig({
         avatarCacheTime: 60 * 60 * 1000, // 1 hour
         links: {},
         socials: {},
+        keywords: ["main page"],
     },
 });

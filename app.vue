@@ -59,11 +59,13 @@ const footer = useState(() => config.footer);
 const links = useState(() => config.links as Record<string, string>);
 const socials = useState(() => config.socials as Record<string, { link: string; icon: string }>);
 
+const keywords = useState(() => config.keywords);
+
 useHead({
     title: config.title,
     meta: [
         { name: "description", content: `${hitokoto.value}\n${description.value}` },
-        { hid: "keywords", name: "keywords", content: "XiYang6666, main page, 个人主页" },
+        { hid: "keywords", name: "keywords", content: keywords.value.join(", ") },
     ],
     link: [
         {
