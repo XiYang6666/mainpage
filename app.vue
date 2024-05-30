@@ -61,7 +61,10 @@ const socials = useState(() => config.socials as Record<string, { link: string; 
 
 useHead({
     title: config.title,
-    meta: [{ name: "description", content: `${hitokoto.value}\n${description.value}` }],
+    meta: [
+        { name: "description", content: `${hitokoto.value}\n${description.value}` },
+        { hid: "keywords", name: "keywords", content: "XiYang6666, main page, 个人主页" },
+    ],
     link: [
         {
             rel: "shortcut icon",
