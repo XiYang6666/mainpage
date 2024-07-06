@@ -15,5 +15,7 @@ export default defineNuxtConfig({
         links: {},
         socials: {},
         keywords: ["main page"],
+        imageHosting: false,
+        imageLinks: [],
     },
 });
