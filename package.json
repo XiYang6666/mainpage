@@ -10,6 +10,7 @@
         "postinstall": "nuxt prepare"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.6.0",
         "nuxt": "^3.11.2",
         "png-to-ico": "^2.1.8",
         "sharp": "^0.33.3",
@@ -22,4 +23,3 @@
     },
     "packageManager": "pnpm@8.15.6"
 }
-
