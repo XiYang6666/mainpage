@@ -45,10 +45,8 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const config = useRuntimeConfig();
-
 const ownerName = useState(() => config.ownerName);
 const description = useState(() => config.description);
-
 const hitokoto: Ref<string> = useState();
 
 if (process.server) {
@@ -57,13 +55,11 @@ if (process.server) {
 }
 
 const footer = useState(() => config.footer);
-
 const links = useState(() => config.links as Record<string, string>);
 const socials = useState(() => config.socials as Record<string, { link: string; icon: string }>);
-
 const keywords = useState(() => config.keywords);
-
 const meta = useState(() => config.meta as Record<string, string>[]);
+const lang = useState(() => config.lang);
 
 useHead({
     title: config.title,
@@ -88,5 +84,8 @@ useHead({
             as: "image",
         },
     ],
+    htmlAttrs: {
+        lang: lang.value,
+    },
 });
 </script>

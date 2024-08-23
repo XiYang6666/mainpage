@@ -18,5 +18,6 @@ export default defineNuxtConfig({
         imageHosting: false,
         imageLinks: [],
         meta: [],
+        lang: "zh-CN",
     },
 });
