@@ -17,5 +17,6 @@ export default defineNuxtConfig({
         keywords: ["main page"],
         imageHosting: false,
         imageLinks: [],
+        meta: [],
     },
 });

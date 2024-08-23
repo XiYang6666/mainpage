@@ -61,11 +61,14 @@ const socials = useState(() => config.socials as Record<string, { link: string; 
 
 const keywords = useState(() => config.keywords);
 
+const meta = useState(() => config.meta as Record<string, string>[]);
+
 useHead({
     title: config.title,
     meta: [
         { name: "description", content: `${hitokoto.value}\n${description.value}` },
         { hid: "keywords", name: "keywords", content: keywords.value.join(", ") },
+        ...meta.value,
     ],
     link: [
         {
