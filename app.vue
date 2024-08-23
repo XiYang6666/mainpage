@@ -77,6 +77,16 @@ useHead({
             rel: "shortcut icon",
             href: "/api/getIcon",
         },
+        {
+            rel: "preload",
+            href: "/api/getAvatar",
+            as: "image",
+        },
+        {
+            rel: "preload",
+            href: "/api/getRandomBackground",
+            as: "image",
+        },
     ],
 });
 </script>
