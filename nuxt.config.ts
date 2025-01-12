@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     runtimeConfig: {
         title: "Example's Main Page",
         ownerEmail: "example@example.com",
-        ownerName: "Example",
+        ownerName: "ExampleName",
+        ownerFormerName: "ExampleFormer",
         description: "Welcome to Example's main page",
         footer: "an example footer",
         hitokotoUrl: "https://v1.hitokoto.cn",
