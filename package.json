@@ -10,16 +10,16 @@
         "postinstall": "nuxt prepare"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.7.1",
-        "nuxt": "^3.14.1592",
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "nuxt": "^3.16.1",
         "png-to-ico": "^2.1.8",
         "sharp": "^0.33.5",
         "vue": "^3.5.13",
-        "vue-router": "^4.4.5"
+        "vue-router": "^4.5.0"
     },
     "devDependencies": {
-        "@nuxtjs/tailwindcss": "^6.12.2",
-        "prettier": "^3.3.3"
+        "@nuxtjs/tailwindcss": "^6.13.2",
+        "prettier": "^3.5.3"
     },
-    "packageManager": "pnpm@8.15.6"
+    "packageManager": "pnpm@10.7.0"
 }
