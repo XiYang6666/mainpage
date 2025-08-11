@@ -6,7 +6,7 @@ const config = useRuntimeConfig();
 
 let iconCache: {
     time: number;
-    value: Blob;
+    value: Buffer;
 };
 
 export default defineEventHandler(async (event) => {
@@ -15,10 +15,10 @@ export default defineEventHandler(async (event) => {
     }
     const avatarUrl = getGravatarUrl(config.ownerEmail);
 
-    const imageBlob: Blob = await $fetch(avatarUrl.toString());
+    const imageBuffer: Buffer = Buffer.from(await $fetch(avatarUrl.toString(), { responseType: "arrayBuffer" }));
 
     const radius = 64;
-    const sharpImage = sharp(Buffer.from(await imageBlob.arrayBuffer()));
+    const sharpImage = sharp(imageBuffer);
     const imgMeta = await sharpImage.metadata();
     const processedImgBuffer = await sharpImage
         .composite([
@@ -32,12 +32,11 @@ export default defineEventHandler(async (event) => {
         ])
         .png()
         .toBuffer();
-    const processedImg = new Blob([processedImgBuffer.buffer], { type: "image/png" });
     iconCache = {
         time: Date.now(),
-        value: processedImg,
+        value: processedImgBuffer,
     };
 
     updateIco(processedImgBuffer);
-    return processedImg;
+    return processedImgBuffer;
 });
