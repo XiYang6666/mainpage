@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ["@nuxtjs/tailwindcss"],
     css: ["public/style.css"],
+
     runtimeConfig: {
         title: "Example's Main Page",
         ownerEmail: "example@example.com",
@@ -21,4 +22,6 @@ export default defineNuxtConfig({
         meta: [],
         lang: "zh-CN",
     },
+
+    compatibilityDate: "2025-08-11",
 });
