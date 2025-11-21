@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ["@nuxtjs/tailwindcss"],
-    css: ["public/style.css"],
+    css: ["assets/style.css"],
 
     runtimeConfig: {
         title: "Example's Main Page",
