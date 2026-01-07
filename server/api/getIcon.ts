@@ -1,13 +1,15 @@
-import { getGravatarUrl } from "../getGravatarUrl";
+import { getGravatarUrl } from "../util/gravatar";
 import sharp from "sharp";
 import { updateIco } from "../updateIco";
 
 const config = useRuntimeConfig();
 
-let iconCache: {
-    time: number;
-    value: Buffer;
-};
+let iconCache:
+    | {
+          time: number;
+          value: Buffer;
+      }
+    | undefined;
 
 export default defineEventHandler(async (event) => {
     if (iconCache && iconCache.time + config.avatarCacheTime >= Date.now()) {
@@ -32,6 +34,7 @@ export default defineEventHandler(async (event) => {
         ])
         .png()
         .toBuffer();
+    const lastCache = iconCache;
     iconCache = {
         time: Date.now(),
         value: processedImgBuffer,

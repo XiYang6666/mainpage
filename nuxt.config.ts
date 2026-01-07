@@ -14,6 +14,7 @@ export default defineNuxtConfig({
         hitokotoUrl: "https://v1.hitokoto.cn",
         gravatarUrl: "https://gravatar.com",
         avatarCacheTime: 60 * 60 * 1000, // 1 hour
+        avatarProxy: false,
         links: {},
         socials: {},
         keywords: ["main page"],
