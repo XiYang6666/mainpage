@@ -82,7 +82,7 @@ useHead({
     link: [
         {
             rel: "shortcut icon",
-            href: "/api/getIcon",
+            href: "/favicon.ico",
         },
         {
             rel: "preload",
