@@ -30,16 +30,16 @@
             <span class="description text-lg text-zinc-400 font-thin text-center">{{ description }}</span>
 
             <nav class="flex items-center flex-col mt-6 gap-8">
-                <ul class="links float-left">
+                <ul class="links flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-[95dvw]">
                     <li
                         v-for="[name, link] of Object.entries(links ?? {})"
-                        class="float-left border-2 mx-2 p-1 border-zinc-600 inline-block w-24 text-center rounded-full hover:bg-slate-600 transition-colors duration-500 transform-gpu"
+                        class="border-2 p-1 border-zinc-600 w-24 text-center rounded-full hover:bg-slate-600 transition-colors duration-500 transform-gpu"
                     >
                         <a :href="link" class="text-base text-zinc-400 font-thin">{{ name }}</a>
                     </li>
                 </ul>
-                <ul class="socials">
-                    <li v-for="{ link, icon } of Object.values(socials ?? {})" class="float-left mx-3">
+                <ul class="socials flex flex-wrap justify-center gap-x-6 gap-y-2 max-w-[95dvw]">
+                    <li v-for="{ link, icon } of Object.values(socials ?? {})">
                         <a
                             :href="link"
                             class="text-3xl text-white hover:text-slate-600 transition-colors duration-300 transform-gpu"
