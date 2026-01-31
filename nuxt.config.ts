@@ -3,25 +3,38 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ["@nuxtjs/tailwindcss"],
     css: ["assets/style.css"],
-
+    app: {
+        head: {
+            link: [
+                {
+                    rel: "icon",
+                    href: "/favicon.ico",
+                },
+            ],
+        },
+    },
     runtimeConfig: {
-        title: "Example's Main Page",
-        ownerEmail: "example@example.com",
-        ownerName: "ExampleName",
-        ownerFormerName: "ExampleFormer",
-        description: "Welcome to Example's main page",
-        footer: "an example footer",
+        public: {
+            title: "Example's Homepage",
+            ownerEmail: "example@example.com",
+            ownerName: "ExampleName",
+            ownerFormerName: "ExampleFormer",
+            welcome: "Welcome to Example's homepage",
+            description: "Example's homepage",
+            keywords: ["main page"],
+            links: {},
+            socials: {},
+            footer: "an example footer",
+            meta: [],
+            lang: "zh-CN",
+        },
+
         hitokotoUrl: "https://v1.hitokoto.cn",
         gravatarUrl: "https://gravatar.com",
         avatarCacheTime: 60 * 60 * 1000, // 1 hour
         avatarProxy: false,
-        links: {},
-        socials: {},
-        keywords: ["main page"],
         imageHosting: false,
         imageLinks: [],
-        meta: [],
-        lang: "zh-CN",
     },
 
     compatibilityDate: "2025-08-11",

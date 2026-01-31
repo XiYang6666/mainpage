@@ -11,14 +11,14 @@ const iconBufferKey = "icon_buffer";
 
 export function getAvatarUrl(): URL {
     if (cache.has(avatarUrlKey)) return cache.get(avatarUrlKey) as URL;
-    const result = getGravatarUrl(config.ownerEmail, Date.now());
+    const result = getGravatarUrl(config.public.ownerEmail, Date.now());
     cache.set(avatarUrlKey, result);
     return result;
 }
 
 export async function getAvatarBuffer(): Promise<Buffer> {
     if (cache.has(avatarBufferKey)) return cache.get(avatarBufferKey) as Buffer;
-    const avatarUrl = getGravatarUrl(config.ownerEmail);
+    const avatarUrl = getGravatarUrl(config.public.ownerEmail);
     const result = Buffer.from(await $fetch(avatarUrl.toString(), { responseType: "arrayBuffer" }));
     cache.set(avatarBufferKey, result);
     return result;
