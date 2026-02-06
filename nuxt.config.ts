@@ -13,6 +13,11 @@ export default defineNuxtConfig({
             ],
         },
     },
+    nitro: {
+        prerender: {
+            routes: ["/"],
+        },
+    },
     runtimeConfig: {
         public: {
             title: "Example's Homepage",
