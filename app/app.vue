@@ -70,10 +70,10 @@ import type { HitokotoResult } from "~~/shared/types/hitokoto";
 const config = useRuntimeConfig();
 const links = config.public.links as Record<string, string>;
 const socials = config.public.socials as Record<string, { link: string; icon: string }>;
-const { data: hitokoto } = await useAsyncData<HitokotoResult>("hitokoto", () => $fetch(config.hitokotoUrl));
-const BOOK_TYPES = new Set(["a", "b", "c", "d", "h", "i", "j"]);
+const { data: hitokoto } = await useFetch<HitokotoResult>(config.hitokotoUrl, { server: true });
 const hitokotoTitle = useState(() => {
     if (!hitokoto.value) return "";
+    const BOOK_TYPES = new Set(["a", "b", "c", "d", "h", "i", "j"]);
     const from = BOOK_TYPES.has(hitokoto.value.type) ? `《${hitokoto.value.from}》` : hitokoto.value.from;
     const fromWho = hitokoto.value.from_who ? " —— " + hitokoto.value.from_who : "";
     return `来源: ${from}${fromWho}`;
