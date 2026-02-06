@@ -13,9 +13,9 @@ export default defineNuxtConfig({
             ],
         },
     },
-    nitro: {
-        prerender: {
-            routes: ["/"],
+    routeRules: {
+        "/": {
+            swr: true,
         },
     },
     runtimeConfig: {
