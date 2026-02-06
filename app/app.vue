@@ -26,10 +26,12 @@
             <hr class="w-1/2 border-gray-600 m-5" />
 
             <span
+                id="hitokoto"
                 class="text-lg text-zinc-400 font-thin text-center break-after-auto max-w-[95dvw]"
                 :title="hitokotoTitle"
-                >{{ hitokoto?.hitokoto }}</span
             >
+                {{ isClient ? hitokoto?.hitokoto : "&nbsp;" }}
+            </span>
 
             <hr class="w-1/2 border-gray-600 m-6" />
 
@@ -67,16 +69,22 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import type { HitokotoResult } from "~~/shared/types/hitokoto";
 
+const isClient = import.meta.client;
 const config = useRuntimeConfig();
 const links = config.public.links as Record<string, string>;
 const socials = config.public.socials as Record<string, { link: string; icon: string }>;
-const { data: hitokoto } = await useFetch<HitokotoResult>(config.hitokotoUrl, { server: true });
-const hitokotoTitle = useState(() => {
+const { data: hitokotoResult } = await useFetch<HitokotoResult>(config.hitokotoUrl, { server: true });
+const hitokoto = useState(() => hitokotoResult.value);
+const hitokotoTitle = computed(() => {
     if (!hitokoto.value) return "";
     const BOOK_TYPES = new Set(["a", "b", "c", "d", "h", "i", "j"]);
     const from = BOOK_TYPES.has(hitokoto.value.type) ? `《${hitokoto.value.from}》` : hitokoto.value.from;
     const fromWho = hitokoto.value.from_who ? " —— " + hitokoto.value.from_who : "";
     return `来源: ${from}${fromWho}`;
+});
+
+onMounted(() => {
+    document.getElementById("hitokoto")?.style.setProperty("opacity", "1");
 });
 
 useSeoMeta({
@@ -107,3 +115,10 @@ useHead({
     },
 });
 </script>
+
+<style>
+#hitokoto {
+    @apply transition-opacity duration-500 transform-gpu;
+    opacity: 0;
+}
+</style>
