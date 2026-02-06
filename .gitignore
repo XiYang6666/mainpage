@@ -22,7 +22,3 @@ logs
 .env
 .env.*
 !.env.example
-
-.vscode
-
-public/favicon.ico
